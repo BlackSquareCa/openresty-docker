@@ -1,12 +1,12 @@
 FROM ubuntu:14.04
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV OPENRESTY_VERSION 1.7.10.2
+ENV OPENRESTY_VERSION 1.9.3.1
 ENV OPENRESTY_PREFIX /opt/openresty
 ENV NGINX_PREFIX /opt/openresty/nginx
 ENV VAR_PREFIX /var/nginx
 
-RUN apt-get update && apt-get install -y libpcre3 libssl1.0.0 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libpcre3 libssl1.0.0 dnsmasq && rm -rf /var/lib/apt/lists/*
 
 RUN buildDeps='curl perl make build-essential procps libreadline-dev libncurses5-dev libpcre3-dev libssl-dev' \
     && set -x \
